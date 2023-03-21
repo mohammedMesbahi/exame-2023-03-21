@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b598df9775.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="/javascripts/main.js"></script>
+  </head>
+
+  <body>
+    <div class="d-flex flex-row w-100 h-100 g-4">
+      <div class="col-6 d-flex h-100 flex-column p-5" id="div_form">
+        <form class="">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Task</label>
+            <input
+              type="text"
+              class="form-control p-1 mb-3"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Task"
+              name="title"
+            />
+          </div>
+          <div class="row w-40">
+            <button type="reset" class="btn btn-primary mb-3">Reset</button>
+            <button type="submit" class="btn btn-primary submit-btn mb-3">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-6 d-flex h-100 flex-column p-5" id="list">
+        <ul class="list-group list list-group-flush w-100 h-100">
+          
+        </ul>
+      </div>
+    </div>
+    <template id="taskItem">
+      <li class="list-group-item d-flex mb-3 justify-content-between list">
+        <span class="title"></span>
+        <div class="d-flex flex-row">
+          <button type="button" class="btn mr-1 btn-primary delete-btn">
+            Delete
+          </button>
+          <div class="d-flex flex-column">
+            <button type="button " class="btn mb-1 btn-light move-up-btn">
+              move up
+            </button>
+            <button type="button " class="btn btn-dark move-down-btn">
+              move down
+            </button>
+          </div>
+        </div>
+      </li>
+    </template>
+    <script
+      src="https://kit.fontawesome.com/b598df9775.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
