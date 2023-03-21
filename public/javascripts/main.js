@@ -36,7 +36,7 @@ btnSubmit.addEventListener("click", (e) => {
             },
             credentials: "include",
           });
-          //reload();
+          reload();
         });
         clone.querySelector(".move-up-btn").addEventListener("click", (e) => {
           fetch(`/moveTaskUp`, {
@@ -47,7 +47,7 @@ btnSubmit.addEventListener("click", (e) => {
             credentials: "include",
             body: JSON.stringify(task),
           });
-          //();
+          reload();
         });
         clone.querySelector(".move-down-btn").addEventListener("click", (e) => {
           fetch(`/moveTaskDown`, {
@@ -58,7 +58,7 @@ btnSubmit.addEventListener("click", (e) => {
             credentials: "include",
             body: JSON.stringify(task),
           });
-          //();
+          reload();
         });
         list.appendChild(clone);
         input.value = "";
@@ -69,8 +69,9 @@ btnSubmit.addEventListener("click", (e) => {
     });
 });
 
-/* const // = () => {
-  fetch("/tasks")
+const reload = () => {
+    
+    fetch("/tasks")
     .then((res) => res.json())
     .then((data) => {
       list.innerHTML = "";
@@ -78,6 +79,7 @@ btnSubmit.addEventListener("click", (e) => {
         let template = document.querySelector("#taskItem");
         const clone = template.content.cloneNode(true);
         clone.querySelector(".title").textContent = task.title;
+
         clone.querySelector(".delete-btn").addEventListener("click", (e) => {
           fetch(`/task/${task.id}`, {
             method: "DELETE",
@@ -86,33 +88,35 @@ btnSubmit.addEventListener("click", (e) => {
             },
             credentials: "include",
           });
-          //();
+          reload();
         });
         clone.querySelector(".move-up-btn").addEventListener("click", (e) => {
-            fetch(`/moveTaskUp`, {
-              method: "post",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              credentials: "include",
-              body: JSON.stringify(task),
-            });
-            //();
+          fetch(`/moveTaskUp`, {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(task),
           });
-          clone.querySelector(".move-down-btn").addEventListener("click", (e) => {
-            fetch(`/moveTaskDown`, {
-              method: "post",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              credentials: "include",
-              body: JSON.stringify(task),
-            });
-            //();
+          reload();
+        });
+        clone.querySelector(".move-down-btn").addEventListener("click", (e) => {
+          fetch(`/moveTaskDown`, {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(task),
           });
-          list.appendChild(clone);
-          input.value = "";
+          reload();
+        });
+        list.appendChild(clone);
+        input.value = "";
+        input.focus();
+        list.scrollTop = list.scrollHeight;
+        console.log(data);
       });
     });
-};
- */
+}
